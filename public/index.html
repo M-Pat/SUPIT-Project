@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Algebra University College</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/features/">
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="#"
+          onclick="openVideoPopup(); return false;"
+        >
+          <img 
+            src="https://i.imgur.com/c50BXjs.png"
+            alt="Algebra Logo"
+            width="80"
+            height="60"
+          />
+          Algebra University College</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="curriculumTab" href="curriculum.html" style="display: none;">Curriculum</a>
+            </li>
+
+            <!-- Login/Logout modal -->
+            <li class="nav-item">
+              <button
+                id="authButton"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                onclick="openLoginPopup()"
+              >
+                Login / Register
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <div class="content-width">
+        <div class="slideshow">
+          <!-- Slideshow -->
+          <div class="slideshow-items">
+            <div class="item">
+              <div class="item-image-container">
+                <img class="item-image" src="https://fieldservicenews.com/wp-content/uploads/2023/02/engineer-and-businessman-copy-500x800.jpg" />
+              </div>
+             
+              <div class="item-header">
+                <span class="vertical-part"><b>C</b></span>
+                <span class="vertical-part"><b>r</b></span>
+                <span class="vertical-part"><b>e</b></span>
+                <span class="vertical-part"><b>a</b></span>
+                <span class="vertical-part"><b>t</b></span>
+                <span class="vertical-part"><b>e</b></span>
+              </div>
+              
+              <div class="item-description">
+                <span class="vertical-part">
+                  <b>Create the future you want to be a part of!</b>
+                </span>
+                <span class="vertical-part">
+                  <b>At Algebra you will gain the skills and experience needed to jumpstart your career in any field of engineering</b>
+                </span> 
+                <span class="vertical-part">
+                  <b>Here, students are not merely passive learners but active creators, encouraged to forge their own paths and shape their futures. Whether it's through innovative projects, 
+                  cutting-edge research, or entrepreneurial ventures, we empower our students to unleash their creativity and bring their ideas to life. </b>
+                </span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-image-container">
+                <img class="item-image" src="https://arrowitltd.com/wp-content/uploads/elementor/thumbs/successful-businesswoman-using-a-digital-tablet-while-standing-in-front-of-business-building-pvdisoi21ky42l7lk42l5apxq6cp4z418lpinci2bk.jpg" />
+              </div>
+              
+              <div class="item-header">
+                <span class="vertical-part"><b>A</b></span>
+                <span class="vertical-part"><b>n</b></span>
+                <span class="vertical-part"><b>a</b></span>
+                <span class="vertical-part"><b>l</b></span>
+                <span class="vertical-part"><b>y</b></span>
+                <span class="vertical-part"><b>s</b></span>
+                <span class="vertical-part"><b>e</b></span>
+              </div>
+             
+              <div class="item-description">
+                <span class="vertical-part">
+                  <b>Here, we recognize the power of critical thinking and analytical skills as catalysts for success in today's complex world.</b>
+                </span>
+                <span class="vertical-part">
+                  <b>Through rigorous academic programs and hands-on projects, students are equipped with the tools to dissect problems, uncover patterns, and derive meaningful insights.</b>
+                </span>
+                <span class="vertical-part">
+                  <b>Whether delving into the depths of data science, unraveling the complexities of business analytics, or exploring the intricacies of cybersecurity,
+                 our students are trained to become adept analysts poised to tackle real-world challenges head-on</b>
+                </span>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-image-container">
+                <img class="item-image" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a1232e48702241.589f548dc6bee.jpg" />
+              </div>
+           
+              <div class="item-header">
+                <span class="vertical-part"><b>P</b></span>
+                <span class="vertical-part"><b>l</b></span>
+                <span class="vertical-part"><b>a</b></span>
+                <span class="vertical-part"><b>y</b></span>
+              </div>
+              
+              <div class="item-description">
+                <span class="vertical-part">
+                  <b>Here, education transcends traditional boundaries, inviting students to explore, experiment, and play with ideas.</b>
+                </span>
+                <span class="vertical-part">
+                  <b>Our vibrant campus culture fosters a sense of curiosity and creativity, encouraging students to think outside the box and approach learning with a spirit of fun and adventure.
+                 From interactive classes and collaborative projects to extracurricular activities and events, there's always something exciting happening at Algebra.</b>
+                </span>
+                <span class="vertical-part">
+                  <b>Join us and discover how the joy of discovery and the thrill of exploration can propel you towards academic excellence.</b>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <ul>
+              <li class="control" data-index="0"></li>
+              <li class="control" data-index="1"></li>
+              <li class="control" data-index="2"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+ 
+      <h2 class="pb-2 border-bottom">About us</h2>
+      
+      <div class="columns">
+        <div class="column">
+          <h2>Adult Education</h2>
+          <p>
+            "The decision you make about your education is important and far
+            reaching. Choose from a large offer of educational programs. At
+            Algebra you shall find what you seek, whether you are looking to
+            jump start a career or searching for a way to direct it toward new
+            challenges."
+          </p>
+          <div class="button-container">
+            <a href="about.html" class="button button-more">
+              <span>See more</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2>Algebra University</h2>
+          <p>
+            "Take a step toward an interesting career and new challenges with
+            Algebra. Let us show you how to progress in a constantly changing
+            world. Choose from a plethora of courses from art to engineering.
+            Because we want you to do what you love and be excellent at it."
+          </p>
+          <div class="button-container">
+            <a href="about.html" class="button button-more">
+              <span>See more</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="column">
+          <h2>Junior Education</h2>
+          <p>
+            "We will turn your kid into a real digital ninja. Building a whole
+            new mindset. Inspiring creativity and communication skills. Bite
+            sized learning chunks introducing young ones to computer programming
+            and fun stuff like robotics, 3D design and game development."
+          </p>
+          <div class="button-container">
+            <a href="about.html" class="button button-more">
+              <span>See more</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <h2 class="pb-2 border-bottom">News</h2>
+
+      <div class="newscont">
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card rounded-3">
+                    <img src="https://www.algebra.hr/wp-content/uploads/sites/1/nggallery/dvorana-steve-jobs/W5A9719-HDR.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><a href="news.html">The library will be closed due to repairs</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card rounded-3">
+                    <img src="https://media.licdn.com/dms/image/D4E22AQFMwQN_O-E3fw/feedshare-shrink_800/0/1714379005965?e=2147483647&v=beta&t=NwjCqhnA-8OwWCGfFth8vkIc0KPq25KD9Q9D0ezIIFg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><a href="news.html">Join our MBA program starting this fall</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card rounded-3">
+                    <img src="https://www.algebra.hr/wp-content/uploads/2020/09/Algebra_Ali-Kebaba_nagrade_02.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text"><a href="news.html">Junior developer awards</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </main>
+
+  <footer class="footer-container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2024 Algebra, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="loginUsername" class="form-label">Username:</label>
+            <input type="text" id="loginUsername" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password:</label>
+            <input type="password" id="loginPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="openRegistrationLink" class="close-modal">Register here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registrationForm">
+          <div class="mb-3">
+            <label for="regUsername" class="form-label">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" id="openLoginLink" class="close-modal">Login here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="JavaScript/script.js"></script>
+    <script src="JavaScript/login.js"></script>
+    <script src="JavaScript/register.js"></script>
+    <script src="JavaScript/logout.js"></script>
+  </body>
+</html>

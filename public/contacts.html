@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Algebra University College</title>
+
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+  </head>
+
+  <body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="#"
+          onclick="openVideoPopup(); return false;"
+        >
+          <img
+            src="https://i.imgur.com/c50BXjs.png"
+            alt="Algebra Logo"
+            width="80"
+            height="60"
+          />
+          Algebra University College</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="curriculumTab" href="curriculum.html" style="display: none;">Curriculum</a>
+            </li>
+
+            <!-- Login/Logout modal -->
+            <li class="nav-item">
+              <button
+                id="authButton"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                onclick="openLoginPopup()"
+              >
+              Login / Register
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+ <main>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="https://www.algebra.hr/sveuciliste/wp-content/uploads/2024/02/slider_multimedijsko.jpg" class="d-block w-100 position-absolute top-0 start-0" alt="Image">
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Join our team</h1>
+            <p class="opacity-75">We are looking for staff, do you think you have what it takes?</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Join</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="https://www.algebra.hr/wp-content/uploads/2022/04/Novosti_IW.jpg" class="d-block w-100 position-absolute top-0 start-0" alt="Image">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Contact us</h1>
+            <p>We're always ready to answer any and all of your questions!</p>
+            <p><a class="btn btn-lg btn-primary" href="#contactModal" data-bs-toggle="modal">Contact form</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="https://www.algebra.hr/lab/wp-content/uploads/sites/18/2022/04/slider2.jpg" class="d-block w-100 position-absolute top-0 start-0" alt="Image">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>News</h1>
+            <p>Be up to date with the latest news</p>
+            <p><a class="btn btn-lg btn-primary" href="news.html">Browse news</a></p>
+          </div>
+        </div>
+      </div>
+     </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+    <div class="container-marketing">
+      <div class="row">
+        <div class="col-lg-4">
+          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <title>MP</title>
+            <defs>
+              <clipPath class="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://i.kym-cdn.com/photos/images/original/002/387/363/e4d.jpg" width="140" height="140" clip-path="url(.circleView)" />
+        </svg>
+        
+        <h2 class="fw-normal">Mark Patacic</h2>
+
+        <div class="profile-field">
+          <span class="profile-label">Name:</span>
+          <span>Mark Patacic</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-label">Tel:</span>
+          <span>(123) 456-7890</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-label">Email:</span>
+          <span>mp@algebra.com</span>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>JBC</title>
+          <defs>
+              <clipPath class="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://i.kym-cdn.com/photos/images/newsfeed/000/827/836/1c6.jpg" width="140" height="140" clip-path="url(.circleView)" />
+        </svg>
+        
+        <h2 class="fw-normal">J. B. Crncec</h2>
+
+        <div class="profile-field">
+          <span class="profile-label">Name:</span>
+          <span>Jan Boran Crncec</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-label">Tel:</span>
+          <span>(123) 456-7890</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-label">Email:</span>
+          <span>jbc@algebra.com</span>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>DG</title>
+          <defs>
+              <clipPath class="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://i.kym-cdn.com/photos/images/newsfeed/001/083/714/6f5.jpg" width="140" height="140" clip-path="url(.circleView)" />
+        </svg>
+        
+        <h2 class="fw-normal">Domagoj Guzel</h2>
+
+        <div class="profile-field">
+          <span class="profile-label">Name:</span>
+          <span>Domagoj Guzel</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-label">Tel:</span>
+          <span>(123) 456-7890</span>
+        </div>
+        <div class="profile-field">
+          <span class="profile-label">Email:</span>
+          <span>dg@algebra.com</span>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="mapcontainer">
+        <div class="details">
+          <h2>Where you can find us: </h2>
+          <p>📍 Gradišćanska ul. 24, 10000, Zagreb</p>
+        </div>
+      <div class="map">
+          <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2781.0499924661785!2d15.938525512523151!3d45.81025717096113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d6d74e265877%3A0x1a4f4eae9fc461c5!2sAlgebra%20University%20College!5e0!3m2!1sbs!2shr!4v1718052029460!5m2!1sbs!2shr"
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+          </iframe>
+      </div>
+    </div>
+    </div>
+    </main>
+
+   <footer class="footer-container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2024 Algebra, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+   <div class="modal" id="contactModal">
+   <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Contact Form</h4>
+              <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+          </div>
+          <form class="modal-body" id="contactForm">
+            <div class="row form-group">
+              <h1>CONTACT US</h1>
+            </div>
+            <div class="row form-group ">
+              <h4 style="text-align:center">We'd love to hear from you!</h4>
+            </div>
+            <div class="row input-container form-group">
+              <div class="col-xs-12 form-group">
+                <div class="styled-input wide form-group">
+                  <input type="text" id="fullName" required />
+                  <label>Name</label> 
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 form-group">
+                <div class="styled-input form-group">
+                  <input type="email" id="email" required />
+                  <label>Email</label> 
+                </div>
+              </div>
+              <div class="col-xs-12 form-group">
+                <div class="styled-input wide form-group">
+                  <textarea id="message" required></textarea>
+                  <label>Message</label>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 form-group">
+                <div class="styled-input form-group" style="display: flex; align-items: center;">
+                    <select id="importance">
+                        <option value="Low">Low Importance</option>
+                        <option value="Medium">Medium Importance</option>
+                        <option value="High">High Importance</option>
+                    </select>
+                </div>
+            </div>
+              <div class="col-xs-12 checkbox-container form-group" style="margin: 1em 0;">
+                <label for="receiveNewsletter">Receive Newsletter</label>
+                <input type="checkbox" id="receiveNewsletter" name="ReceiveNewsletter">
+              </div>
+              <div class="col-xs-12 form-group">
+                <button type="submit" class="btn-lrg submit-btn">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+   </div>
+
+   <!-- Login Modal -->
+   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="loginUsername" class="form-label">Username:</label>
+            <input type="text" id="loginUsername" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password:</label>
+            <input type="password" id="loginPassword" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="openRegistrationLink" class="close-modal">Register here</a>.</p>
+      </div>
+    </div>
+   </div>
+    </div>
+
+
+   <!-- Registration Modal -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registrationForm">
+          <div class="mb-3">
+            <label for="regUsername" class="form-label">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" id="openLoginLink" class="close-modal">Login here</a>.</p>
+      </div>
+    </div>
+   </div>
+    </div>
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+   <script src="JavaScript/contacts.js"></script>
+   <script src="JavaScript/script.js"></script>
+   <script src="JavaScript/login.js"></script>
+   <script src="JavaScript/register.js"></script>
+   <script src="JavaScript/logout.js"></script>
+
+   </body>
+</html>

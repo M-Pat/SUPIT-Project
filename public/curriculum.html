@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Algebra University College</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheetjq" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui/1.12.1/jquery-ui.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/features/">
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+
+      #courseDetails { display: none; }
+
+      #selectedCoursesTable, th, td { border: 1px solid black; border-collapse: collapse; margin-bottom: 500px;}
+      th, td { padding: 10px; }
+
+      #courseSearch {
+            margin-top: 150px;
+            width: 80%;
+        }
+
+      .ui-autocomplete {
+        background-color: #333333; 
+        color: white; 
+        border: 1px solid #555555; 
+        width: 60%;
+      }
+    
+     .ui-menu-item {
+        background-color: #333333; 
+        color: white; 
+      }
+
+      .ui-menu-item:hover {
+        background-color: #555555; 
+     }
+    
+  </style>
+
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="#"
+          onclick="openVideoPopup(); return false;"
+        >
+          <img 
+            src="https://i.imgur.com/c50BXjs.png"
+            alt="Algebra Logo"
+            width="80"
+            height="60"
+          />
+          Algebra University College</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="curriculumTab" href="curriculum.html" style="display: none;">Curriculum</a>
+            </li>
+
+            <!-- Login/Logout modal -->
+            <li class="nav-item">
+              <button
+                id="authButton"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                onclick="openLoginPopup()"
+              >
+              Login / Register
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <main>
+
+      <div>
+        <input type="text" id="courseSearch" placeholder="Search for courses">
+        <div id="courseDetails">
+            <h3>Course Details</h3>
+            <p><strong>ID:</strong> <span id="courseId"></span></p>
+            <p><strong>Course Name:</strong> <span id="courseName"></span></p>
+            <p><strong>ECTS:</strong> <span id="courseEcts"></span></p>
+            <p><strong>Hours:</strong> <span id="courseHours"></span></p>
+            <p><strong>Lectures:</strong> <span id="courseLectures"></span></p>
+            <p><strong>Exercises:</strong> <span id="courseExercises"></span></p>
+            <p><strong>Type:</strong> <span id="courseType"></span></p>
+            <p><strong>Semester:</strong> <span id="courseSemester"></span></p>
+            <button id="addCourseButton">Add Course</button>
+        </div>
+    </div>
+    <h3>Selected Courses</h3>
+    <table id="selectedCoursesTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Course</th>
+                <th>ECTS</th>
+                <th>Hours</th>
+                <th>Lectures</th>
+                <th>Exercises</th>
+                <th>Type</th>
+                <th>Semester</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Total</th>
+                <th id="totalEcts">0</th>
+                <th id="totalHours">0</th>
+                <th colspan="6"></th>
+            </tr>
+        </tfoot>
+    </table> 
+
+    </main>
+
+  <footer class="footer-container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2024 Algebra, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="loginUsername" class="form-label">Username:</label>
+            <input type="text" id="loginUsername" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password:</label>
+            <input type="password" id="loginPassword" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="openRegistrationLink" class="close-modal">Register here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registrationForm">
+          <div class="mb-3">
+            <label for="regUsername" class="form-label">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" id="openLoginLink" class="close-modal">Login here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
+    <script src="JavaScript/login.js"></script>
+    <script src="JavaScript/register.js"></script>
+    <script src="JavaScript/logout.js"></script>
+    <script src="JavaScript/courses.js"></script>
+  </body>
+</html>

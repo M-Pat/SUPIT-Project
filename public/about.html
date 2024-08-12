@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Algebra University College</title>
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="#"
+          onclick="openVideoPopup(); return false;"
+        >
+          <img
+            src="https://i.imgur.com/c50BXjs.png"
+            alt="Algebra Logo"
+            width="80"
+            height="60"
+          />
+          Algebra University College</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="news.html">News</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="curriculumTab" href="curriculum.html" style="display: none;">Curriculum</a>
+            </li>
+
+            <!-- Login/Logout modal -->
+            <li class="nav-item">
+              <button
+                id="authButton"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+                onclick="openLoginPopup()"
+               >
+               Login / Register
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+    
+<main>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="https://www.algebra.hr/sveuciliste/wp-content/uploads/2024/02/nastavnici-i-suradnici-1.jpg" class="d-block w-100 position-absolute top-0 start-0" alt="Image">
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>WELCOME TO ALGEBRA UNIVERSITY</h1>
+            <p class="opacity-75">Register or log in</p>
+            <p><a class="btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal" onclick="openLoginPopup()">Sign up</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="https://www.algebra.hr/sveuciliste/wp-content/uploads/2024/02/o-algebri.jpg" class="d-block w-100 position-absolute top-0 start-0" alt="Image">
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Take an overview of our campus</h1>
+            <p>We're excited to unveil Algebra University's new campus, a state-of-the-art facility designed to enhance your educational experience. </p>
+            <p><a class="btn btn-lg btn-primary" href="#"  onclick="openVideoPopup(); return false;" >View</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+        <img src="https://www.algebra.hr/lab/wp-content/uploads/sites/18/2022/04/slider2.jpg" class="d-block w-100 position-absolute top-0 start-0" alt="Image">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>News</h1>
+            <p>Be up to date with the latest news</p>
+            <p><a class="btn btn-lg btn-primary" href="news.html">Browse news</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+  <div class="container-marketing">
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>AdultEd</title>
+          <defs>
+              <clipPath id="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://www.algebra.hr/sveuciliste/wp-content/uploads/2024/02/kampus.jpg" width="140" height="140" clip-path="url(#circleView)" />
+      </svg>
+        <h2 class="fw-normal">Adult education</h2>
+        <p>"The decision you make about your education is important and far reaching. Choose from a large offer of educational programs. 
+        At Algebra you shall find what you seek, whether you are looking to jump start a career or searching for a way to direct it toward new challenges."</p>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>AlgebraUniv</title>
+          <defs>
+              <clipPath id="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://www.algebra.hr/sveuciliste/wp-content/uploads/2024/02/o-algebri.jpg" width="140" height="140" clip-path="url(#circleView)" />
+      </svg>
+        <h2 class="fw-normal">Algebra University</h2>
+        <p>"Take a step toward an interesting career and new challenges with Algebra. Let us show you how to progress in a constantly changing world. 
+        Choose from a plethora of courses from art to engineering. Because we want you to do what you love and be excellent at it."</p>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>JuniorEd</title>
+          <defs>
+              <clipPath id="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://keystoneacademic-res.cloudinary.com/image/upload/f_auto/q_auto/g_auto/w_650/dpr_2.0/element/18/187728_187485_other_images-Bachelor-in-3D-Design.jpg" width="140" height="140" clip-path="url(#circleView)" />
+         </svg>
+        <h2 class="fw-normal">Junior Education</h2>
+        <p>"We will turn your kid into a real digital ninja. Building a whole new mindset. Inspiring creativity and communication skills.
+          Bite sized learning chunks introducing young ones to computer programming and fun stuff like robotics, 3D design and game development."</p>
+      </div>
+    </div>
+
+    <div class="row"></div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Mission</title>
+          <defs>
+              <clipPath id="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://total-croatia-news.com/wp-content/uploads/2019/03/algebra-university-college_7.jpg" width="140" height="140" clip-path="url(#circleView)" />
+         </svg>
+        <h2 class="fw-normal">Mission and vision</h2>
+        <p>At Algebra University, our mission is to empower students with a transformative education that blends academic rigor with practical skills, fostering innovation, creativity, and leadership. 
+        We are dedicated to providing a supportive and inclusive environment where every student can thrive and achieve their full potential.</p>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>History</title>
+          <defs>
+              <clipPath id="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://www.vecernji.hr/media/img/9e/a7/4c666337df9b9d4f0b25.jpeg" width="140" height="140" clip-path="url(#circleView)" />
+         </svg>
+        <h2 class="fw-normal">History</h2>
+        <p>Born out of a visionary desire to create a leading institution that would cater to the evolving educational needs of students in the modern era. 
+        The founders, a group of passionate educators and industry experts, recognized the importance of combining theoretical knowledge with practical skills to prepare students for the dynamic and competitive global market.</p>
+      </div>
+      <div class="col-lg-4">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Join us</title>
+          <defs>
+              <clipPath id="circleView">
+                  <circle cx="70" cy="70" r="70" />
+              </clipPath>
+          </defs>
+          <rect width="100%" height="100%" fill="var(--bs-secondary-color)"/>
+          <image href="https://www.algebra.hr/sveuciliste/wp-content/uploads/2023/11/Tomislav-Dominkovic-Hrvoje-Balen-Mislav-Balkovic-Algebra-1030x736-1.jpg" width="140" height="140" clip-path="url(#circleView)" />
+         </svg>
+        <h2 class="fw-normal">Join us</h2>
+        <p>Are you ready to embark on a journey of discovery, innovation, and personal growth? At Algebra University, we are committed to providing an enriching and dynamic educational experience that prepares you for a successful future. 
+        Join our vibrant community of students, faculty, and alumni who are shaping the world through knowledge, creativity, and leadership.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer-container">
+  <p class="float-end"><a href="#">Back to top</a></p>
+  <p>&copy; 2024 Algebra, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+</footer>
+
+ <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="loginUsername" class="form-label">Username:</label>
+            <input type="text" id="loginUsername" name="username" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password:</label>
+            <input type="password" id="loginPassword" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="openRegistrationLink" class="close-modal">Register here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content popup-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registrationForm">
+          <div class="mb-3">
+            <label for="regUsername" class="form-label">Username:</label>
+            <input type="text" id="regUsername" name="regUsername" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="regPassword" class="form-label">Password:</label>
+            <input type="password" id="regPassword" name="regPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" id="openLoginLink" class="close-modal">Login here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="JavaScript/script.js"></script>
+    <script src="JavaScript/login.js"></script>
+    <script src="JavaScript/register.js"></script>
+    <script src="JavaScript/logout.js"></script>
+  </body>
+</html>
